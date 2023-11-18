@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const API_KEY = '9d812b7c62449945234d0c78b168e0ee'
+
 export const METRIC = 'metric'
 
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather'
@@ -7,6 +9,6 @@ const baseURL = 'http://api.openweathermap.org/data/2.5/weather'
 export const instance = axios.create({
   baseURL,
   params: {
-    appid: import.meta.env.VITE_APP_API_KEY
+    appid: API_KEY
   },
 })
