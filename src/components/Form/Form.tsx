@@ -3,8 +3,9 @@ import { WeatherFormContext } from '../../context/WeatherFormContext'
 import { LuSearchCheck, LuSearch } from 'react-icons/lu'
 
 const Form = () => {
-  const { register, handleSubmit, onSubmit, data, errors } =
-    useContext(WeatherFormContext)
+  const contextoProviderWeather = useContext(WeatherFormContext)
+
+  const { data, register, handleSubmit, onSubmit, errors } = contextoProviderWeather
 
   return (
     <section className="flex justify-center w-full flex-col items-center">

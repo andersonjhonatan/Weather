@@ -36,12 +36,17 @@ const WeatherFormContextProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
+  const valor = {
+    register,
+    handleSubmit,
+    onSubmit,
+    data,
+    loading,
+    errors,
+  } as ContextCreateData
+
   return (
-    <WeatherFormContext.Provider
-      value={{ register, handleSubmit, onSubmit, data, loading, errors }}
-    >
-      {children}
-    </WeatherFormContext.Provider>
+    <WeatherFormContext.Provider value={valor}>{children}</WeatherFormContext.Provider>
   )
 }
 

@@ -4,7 +4,6 @@ import { WiHumidity } from 'react-icons/wi'
 import { FiWind } from 'react-icons/fi'
 import { IoIosSunny } from 'react-icons/io'
 
-
 const WeatherTemp = () => {
   const { data, loading } = useContext(WeatherFormContext)
 
@@ -21,12 +20,19 @@ const WeatherTemp = () => {
 
   return (
     <section className="flex justify-center items-center  h-full">
-      {!loading && !data && <p className="text-5xl text-slate-400 font-bold">Pesquise sua cidade</p>}
+      {!loading && !data && (
+        <p className="text-5xl text-slate-400 font-bold">Pesquise sua cidade</p>
+      )}
 
-      {loading && <IoIosSunny size={100} className="animate-spin ease-linear duration-2000 text-yellow-600 " />}
+      {loading && (
+        <IoIosSunny
+          size={100}
+          className="animate-spin ease-linear duration-2000 text-yellow-600 "
+        />
+      )}
 
       {data && !loading && (
-        <div className="flex gap-4 justify-center items-stretch w-full text-black">
+        <div className="flex gap-4 justify-center items-stretch w-full text-white">
           <picture className=" flex-1 flex  justify-center items-center  w-full">
             {description?.trim().toLowerCase() === 'céu limpo' ? (
               <IoIosSunny size={300} className="text-yellow-500 " />
@@ -40,6 +46,7 @@ const WeatherTemp = () => {
             )}
           </picture>
           <div className="flex-1 flex justify-center items-center  flex-col  w-full gap-6">
+            {/* Description e temperatura */}
             <div className="flex flex-col gap-2 text-center">
               <p className="text-[7rem] font-thin">{temperatura}°C</p>
               <p className="text-1xl">{description}</p>
@@ -48,20 +55,26 @@ const WeatherTemp = () => {
               </p>
             </div>
 
+            {/* Temperatura maxima e minima */}
+
             <div className="flex gap-4 mt-4">
               <p className="text-1xl">Máxima {temp_max}°C</p>
               <p className="text-1xl">Mínima {temp_min}°C</p>
             </div>
+
+            {/* Humidade e vento */}
+
             <div className="flex gap-6">
               <div className="flex gap-2 mt-4 items-center ">
-                <WiHumidity size={60} color="black" />
+                <WiHumidity size={60} color="white" />
                 <section className="flex flex-col">
                   <p className="text-1xl flex flex-1">{humidity}%</p>
                   <p className="text-1xl flex-1">Umidade</p>
                 </section>
               </div>
+
               <div className="flex gap-2 mt-4 items-center ">
-                <FiWind size={60} color="black" />
+                <FiWind size={60} color="white" />
                 <section className="flex flex-col">
                   <p>{wind} Km/h</p>
                   <p className="text-1xl flex-1">Wind Speed</p>
