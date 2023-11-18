@@ -1,11 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { WeatherFormContext } from '../../context/WeatherFormContext'
 import { WiHumidity } from 'react-icons/wi'
 import { FiWind } from 'react-icons/fi'
 import { IoIosSunny } from 'react-icons/io'
 
 const WeatherTemp = () => {
-  const { data, loading } = useContext(WeatherFormContext)
+  const { data, loading, date } = useContext(WeatherFormContext)
 
   const icon = data?.weather[0].icon
   const temperatura = data?.main.temp.toFixed().slice(0, 2)
@@ -18,10 +18,21 @@ const WeatherTemp = () => {
   const humidity = data?.main.humidity
   const wind = data?.wind.speed.toFixed().slice(0, 1)
 
+  const title = `${name}, ${country}`
+
+  useEffect(() => {
+    if (data) {
+      document.title = `${title} - ${date}`
+    }
+    return () => {
+      document.title = 'Anderson - Weather'
+    }
+  }, [data, date, title])
+
   return (
     <section className="flex justify-center items-center  h-full">
       {!loading && !data && (
-        <p className="text-5xl text-slate-400 font-bold">Pesquise sua cidade</p>
+        <p className="text-5xl text-slate-400 font-bold ">Pesquise sua cidade</p>
       )}
 
       {loading && (
@@ -33,7 +44,7 @@ const WeatherTemp = () => {
 
       {data && !loading && (
         <div className="flex gap-4 justify-center items-stretch w-full text-white">
-          <picture className=" flex-1 flex  justify-center items-center  w-full">
+          <picture className=" flex-1 flex flex-col  justify-center items-center  w-full relative">
             {description?.trim().toLowerCase() === 'céu limpo' ? (
               <IoIosSunny size={300} className="text-yellow-500 " />
             ) : (
@@ -44,6 +55,7 @@ const WeatherTemp = () => {
                 height={600}
               />
             )}
+            <p className="text-xs absolute bottom-0">{date}</p>
           </picture>
           <div className="flex-1 flex justify-center items-center  flex-col  w-full gap-6">
             {/* Description e temperatura */}

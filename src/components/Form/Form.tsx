@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { WeatherFormContext } from '../../context/WeatherFormContext'
 import { LuSearchCheck, LuSearch } from 'react-icons/lu'
+import { FcHighPriority } from 'react-icons/fc'
 
 const Form = () => {
   const contextoProviderWeather = useContext(WeatherFormContext)
@@ -42,7 +43,12 @@ const Form = () => {
         />
       </form>
       {errors && errors.city && (
-        <p className="text-red-500 text-sm mt-2">Cidade obrigatória</p>
+        <div className='flex items-center mt-2 gap-1 bg-black p-2 rounded-full'>
+          <FcHighPriority size={20} className="text-red-500" />
+          <p className="text-white text-xs bg-black p-1 rounded-full">
+            Cidade obrigatória
+          </p>
+        </div>
       )}
     </section>
   )

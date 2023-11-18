@@ -36,6 +36,12 @@ const WeatherFormContextProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
+  const date = new Date().toLocaleDateString('pt-BR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }) 
+
   const valor = {
     register,
     handleSubmit,
@@ -43,6 +49,7 @@ const WeatherFormContextProvider = ({ children }: { children: ReactNode }) => {
     data,
     loading,
     errors,
+    date
   } as ContextCreateData
 
   return (

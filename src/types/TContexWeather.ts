@@ -8,4 +8,5 @@ export type ContextCreateData = {
   data?: WeatherApiResponse
   loading?: boolean
   errors?: FieldErrors<FieldValues>
+  date: string
 }
