@@ -43,7 +43,7 @@ const Form = () => {
         />
       </form>
       {errors && errors.city && (
-        <div className='flex items-center mt-2 gap-1 bg-black p-2 rounded-full'>
+        <div className="flex items-center mt-2 gap-1 bg-black p-2 rounded-full">
           <FcHighPriority size={20} className="text-red-500" />
           <p className="text-white text-xs bg-black p-1 rounded-full">
             Cidade obrigatória
