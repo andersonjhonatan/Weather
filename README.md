@@ -34,6 +34,7 @@ O Weather App é uma aplicação simples para verificar informações meteoroló
 - [React Hook Form](https://react-hook-form.com/)
 - [Axios](https://axios-http.com/)
 - [Context Api](https://reactjs.org/docs/context.html)
+- [TailwindCSS](https://tailwindcss.com/)
 
 ## API Utilizada
 - [OpenWeatherMap](https://openweathermap.org/api)
