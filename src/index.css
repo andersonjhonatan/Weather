@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background-image: url(./assets/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+input {
+  outline: none;
+  border: none;
+}
