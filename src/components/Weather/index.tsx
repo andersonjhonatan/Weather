@@ -49,7 +49,7 @@ const WeatherTemp = () => {
               <IoIosSunny size={300} className="text-yellow-500 " />
             ) : (
               <img
-                src={`http://openweathermap.org/img/wn/${icon}@4x.png`}
+                src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
                 alt="icon-weather-app"
                 width={600}
                 height={600}
