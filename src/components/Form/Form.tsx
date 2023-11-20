@@ -15,7 +15,7 @@ const Form = () => {
         className="flex gap-2
         w-full justify-center max-lg:mt-16 max-sm:mt-16"
       >
-        <div className="relative flex border border-black">
+        <div className="relative flex">
           <input
             type="text"
             className="flex text p-2 pl-4 rounded-2xl placeholder:pl-4 focus:pl-4 outline-none"
