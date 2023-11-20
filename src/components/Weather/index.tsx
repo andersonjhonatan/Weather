@@ -38,7 +38,7 @@ const WeatherTemp = () => {
       {loading && (
         <IoIosSunny
           size={100}
-          className="animate-spin ease-linear duration-2000 text-yellow-600 "
+          className="animate-spin ease-linear duration-2000 text-yellow-600 mt-4 "
         />
       )}
 
