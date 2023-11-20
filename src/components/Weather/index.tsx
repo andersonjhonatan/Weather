@@ -32,7 +32,7 @@ const WeatherTemp = () => {
   return (
     <section className="flex justify-center items-center  h-full">
       {!loading && !data && (
-        <p className="text-5xl text-slate-400 font-bold ">Pesquise sua cidade</p>
+        <p className="text-5xl text-slate-400 font-bold max-lg:text-3xl max-md:text-2xl max-xl:text-4xl max-sm:text-xl">Pesquise sua cidade</p>
       )}
 
       {loading && (
@@ -44,7 +44,7 @@ const WeatherTemp = () => {
 
       {data && !loading && (
         <div className="flex gap-4 justify-center items-stretch w-full text-white max-lg:flex-col">
-          <picture className=" flex-1 flex flex-col  justify-center items-center  w-full relative max-lg:w-full max-lg:">
+          <picture className=" flex-1 flex flex-col  justify-center items-center  w-full relative max-lg:w-full">
             {description?.trim().toLowerCase() === 'céu limpo' ? (
               <IoIosSunny size={300} className="text-yellow-500 " />
             ) : (
@@ -53,10 +53,10 @@ const WeatherTemp = () => {
                 alt="icon-weather-app"
                 width={600}
                 height={600}
-                className='max-lg:w-[200px] max-lg:h-[200px] '
+                className='max-lg:w-[150px] max-lg:h-[150px] '
               />
             )}
-            <p className="text-xs absolute bottom-0">{date}</p>
+            <p className="text-xs absolute max-xl:bottom-0 bottom-0">{date}</p>
           </picture>
           <div className="flex-1 flex justify-center items-center  flex-col  w-full gap-6">
             {/* Description e temperatura */}

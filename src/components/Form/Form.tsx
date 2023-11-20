@@ -13,7 +13,7 @@ const Form = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex gap-2
-        w-full justify-center"
+        w-full justify-center max-lg:mt-16 max-sm:mt-16"
       >
         <div className="relative flex">
           <input
