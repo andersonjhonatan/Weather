@@ -44,7 +44,7 @@ const WeatherTemp = () => {
 
       {data && !loading && (
         <div className="flex gap-4 justify-center items-stretch w-full text-white max-lg:flex-col">
-          <picture className=" flex-1 flex flex-col  justify-center items-center  w-full relative max-lg:w-full">
+          <picture className=" flex-1 flex flex-col  justify-center  items-center  w-full relative border border-black">
             {description?.trim().toLowerCase() === 'céu limpo' ? (
               <IoIosSunny size={300} className="text-yellow-500 " />
             ) : (
@@ -53,7 +53,7 @@ const WeatherTemp = () => {
                 alt="icon-weather-app"
                 width={600}
                 height={600}
-                className='max-lg:w-[150px] max-lg:h-[150px] '
+                className='max-lg:w-[150px] max-lg:h-[150px] border border-black'
               />
             )}
             <p className="text-xs absolute max-xl:bottom-0 bottom-0">{date}</p>
