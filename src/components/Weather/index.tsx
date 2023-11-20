@@ -43,8 +43,8 @@ const WeatherTemp = () => {
       )}
 
       {data && !loading && (
-        <div className="flex gap-4 justify-center items-stretch w-full text-white">
-          <picture className=" flex-1 flex flex-col  justify-center items-center  w-full relative">
+        <div className="flex gap-4 justify-center items-stretch w-full text-white max-lg:flex-col">
+          <picture className=" flex-1 flex flex-col  justify-center items-center  w-full relative max-lg:w-full max-lg:">
             {description?.trim().toLowerCase() === 'céu limpo' ? (
               <IoIosSunny size={300} className="text-yellow-500 " />
             ) : (
@@ -53,14 +53,15 @@ const WeatherTemp = () => {
                 alt="icon-weather-app"
                 width={600}
                 height={600}
+                className='max-lg:w-[200px] max-lg:h-[200px] '
               />
             )}
             <p className="text-xs absolute bottom-0">{date}</p>
           </picture>
           <div className="flex-1 flex justify-center items-center  flex-col  w-full gap-6">
             {/* Description e temperatura */}
-            <div className="flex flex-col gap-2 text-center">
-              <p className="text-[7rem] font-thin">{temperatura}°C</p>
+            <div className="flex flex-col gap-4 text-center">
+              <p className="text-[7rem] max-lg:text-5xl font-thin">{temperatura}°C</p>
               <p className="text-1xl">{description}</p>
               <p className="text-1xl">
                 {name}, <strong>{country}</strong>
@@ -69,16 +70,16 @@ const WeatherTemp = () => {
 
             {/* Temperatura maxima e minima */}
 
-            <div className="flex gap-4 mt-4">
+            <div className="flex gap-4 mt-2">
               <p className="text-1xl">Máxima {temp_max}°C</p>
               <p className="text-1xl">Mínima {temp_min}°C</p>
             </div>
 
             {/* Humidade e vento */}
 
-            <div className="flex gap-6">
-              <div className="flex gap-2 mt-4 items-center ">
-                <WiHumidity size={60} color="white" />
+            <div className="flex gap-4 max-lg:bg-black max-lg:rounded-3xl p-2 max-lg:w-full max-lg:items-center max-lg:justify-center">
+              <div className="flex gap-2 mt-2 items-center ">
+                <WiHumidity size={60} color="white" className="max-lg:w-[30px]" />
                 <section className="flex flex-col">
                   <p className="text-1xl flex flex-1">{humidity}%</p>
                   <p className="text-1xl flex-1">Umidade</p>
@@ -86,7 +87,7 @@ const WeatherTemp = () => {
               </div>
 
               <div className="flex gap-2 mt-4 items-center ">
-                <FiWind size={60} color="white" />
+                <FiWind size={60} color="white" className="max-lg:w-[30px]" />
                 <section className="flex flex-col">
                   <p>{wind} Km/h</p>
                   <p className="text-1xl flex-1">Wind Speed</p>
