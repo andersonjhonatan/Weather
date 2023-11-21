@@ -32,7 +32,7 @@ const WeatherTemp = () => {
   return (
     <section className="flex justify-center items-center  h-full">
       {!loading && !data && (
-        <p className="text-5xl text-slate-400 font-bold max-lg:text-3xl max-md:text-2xl max-xl:text-4xl max-sm:text-xl mt-10">Pesquise sua cidade</p>
+        <p className="text-5xl text-slate-400 font-bold max-lg:text-3xl max-md:text-2xl max-xl:text-4xl max-sm:text-xl mt-10">Pesquise sua cidade.</p>
       )}
 
       {loading && (
