@@ -34,11 +34,8 @@ export interface WeatherResponse {
   hourly: {
     time: string[]
     temperature_2m: number[]
-    apparent_temperature: number[]
     precipitation_probability: number[]
     weather_code: number[]
-    wind_speed_10m: number[]
-    relative_humidity_2m: number[]
   }
   daily: {
     time: string[]
@@ -59,9 +56,23 @@ interface GeoSearchResponse {
 const GEO_BASE = 'https://geocoding-api.open-meteo.com/v1/search'
 const WEATHER_BASE = 'https://api.open-meteo.com/v1/forecast'
 
+const IBIMIRIM: LocationResult = {
+  name: 'Ibimirim',
+  latitude: -8.54056,
+  longitude: -37.69028,
+  country: 'Brasil',
+  country_code: 'BR',
+  admin1: 'Pernambuco',
+  timezone: 'America/Recife',
+}
+
 export async function searchLocations(query: string, signal?: AbortSignal): Promise<LocationResult[]> {
   const trimmed = query.trim()
   if (trimmed.length < 2) return []
+
+  // A tela inicial usa Ibimirim como demonstração. Resolver localmente elimina
+  // uma chamada de rede no primeiro carregamento e deixa o conteúdo aparecer antes.
+  if (trimmed.toLocaleLowerCase('pt-BR') === 'ibimirim') return [IBIMIRIM]
 
   const params = new URLSearchParams({
     name: trimmed,
@@ -99,14 +110,9 @@ export async function getForecast(
       'wind_gusts_10m',
       'visibility',
     ].join(','),
-    hourly: [
-      'temperature_2m',
-      'apparent_temperature',
-      'precipitation_probability',
-      'weather_code',
-      'wind_speed_10m',
-      'relative_humidity_2m',
-    ].join(','),
+    // A interface exibe somente temperatura, chance de chuva e condição nas
+    // próximas horas; não baixamos séries que não são renderizadas.
+    hourly: ['temperature_2m', 'precipitation_probability', 'weather_code'].join(','),
     daily: [
       'weather_code',
       'temperature_2m_max',
@@ -118,6 +124,7 @@ export async function getForecast(
     ].join(','),
     timezone: 'auto',
     forecast_days: '7',
+    forecast_hours: '12',
   })
 
   const response = await fetch(`${WEATHER_BASE}?${params.toString()}`, { signal })
@@ -198,6 +205,6 @@ export function formatTime(date: string): string {
 
 export function windDirection(degrees: number): string {
   const directions = ['N', 'NE', 'L', 'SE', 'S', 'SO', 'O', 'NO']
-  const index = Math.round(((degrees % 360) / 45)) % 8
+  const index = Math.round((degrees % 360) / 45) % 8
   return directions[index]
 }
