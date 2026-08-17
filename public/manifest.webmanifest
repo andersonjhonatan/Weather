@@ -1,0 +1,17 @@
+{
+  "name": "Weather K2",
+  "short_name": "Weather K2",
+  "description": "Clima atual, próximas horas e previsão de 7 dias.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#0b1b2c",
+  "icons": [
+    {
+      "src": "/weather-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

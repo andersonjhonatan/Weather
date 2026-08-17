@@ -1,45 +1,81 @@
-# Anderson - Weather
+# Weather K2
 
-## Descrição
+Aplicação meteorológica moderna da K2 Tech, reformulada a partir do projeto original de 2023 para funcionar como projeto de portfólio: responsivo, instalável e sem chave de API exposta no front-end.
 
-Nome do Projeto: Weather App
+## O que o projeto entrega
 
-O Weather App é uma aplicação simples para verificar informações meteorológicas de uma cidade específica. A aplicação utiliza a API da OpenWeatherMap para obter dados em tempo real, fornecendo informações como temperatura atual, umidade, velocidade do vento, localidade, descrição do tempo, temperatura mínima e máxima.
+- clima atual por cidade ou CEP;
+- geolocalização pelo navegador;
+- sugestões de cidades durante a busca;
+- temperatura e sensação térmica;
+- umidade, vento, rajadas, pressão, visibilidade, nuvens e precipitação;
+- previsão das próximas horas;
+- previsão para 7 dias;
+- nascer e pôr do sol;
+- favoritos e pesquisas recentes salvos no navegador;
+- alternância entre Celsius e Fahrenheit;
+- tema visual dinâmico conforme condição climática e período do dia;
+- tratamento de carregamento e erro;
+- layout mobile-first e acessível;
+- PWA com manifesto, ícone e service worker;
+- metadata para SEO e compartilhamento.
 
+## Dados meteorológicos
 
-## Capturas de Tela
-![main](https://github.com/andersonjhonatan/Weather/blob/main/src/assets/project/Captura%20de%20tela%20de%202023-11-18%2002-26-20.png?raw=true)
-![home](https://github.com/andersonjhonatan/Weather/blob/main/src/assets/project/Captura%20de%20tela%20de%202023-11-18%2002-26-33.png?raw=true)
+O projeto usa a API pública da Open-Meteo para geocodificação e previsão do tempo. Nenhuma chave privada é embutida no bundle do navegador.
 
-## Como Usar
-1. **Clone o repositório:**
-    ```bash
-    git clone git@github.com:andersonjhonatan/Weather.git
-    ```
+- Documentação de previsão: https://open-meteo.com/en/docs
+- Documentação de geocodificação: https://open-meteo.com/en/docs/geocoding-api
 
-2. **Instale as dependências:**
-    ```bash
-    npm install
-    ```
-   
+Para uso comercial ou em grande escala, revise os termos e limites atuais do provedor antes da publicação.
 
-3. **Inicie o aplicativo:**
-    ```bash
-    npm run dev
-    ```
-   
+## Tecnologias
 
-## Tecnologias Utilizadas
-- [Context API](https://reactjs.org/docs/context.html)
-- [React Hook Form](https://react-hook-form.com/)
-- [Axios](https://axios-http.com/)
-- [Context Api](https://reactjs.org/docs/context.html)
-- [TailwindCSS](https://tailwindcss.com/)
+- React
+- TypeScript
+- Vite
+- Tailwind CSS (pipeline existente)
+- React Icons
+- Web APIs: Fetch, Geolocation, Local Storage e Service Worker
 
-## API Utilizada
-- [OpenWeatherMap](https://openweathermap.org/api)
+## Como executar
 
-## Autor
-Anderson Jhonatan dos Santos
+```bash
+git clone https://github.com/andersonjhonatan/Weather.git
+cd Weather
+npm install
+npm run dev
+```
 
+Abra o endereço informado pelo Vite no navegador.
 
+## Build de produção
+
+```bash
+npm run build
+npm run preview
+```
+
+## Estrutura principal
+
+```text
+src/
+├── App.tsx        # interface e estado da experiência
+├── weather.ts     # integração com clima, geocoding e utilitários
+├── index.css      # design system e responsividade
+└── main.tsx       # bootstrap React e registro do PWA
+
+public/
+├── manifest.webmanifest
+├── sw.js
+└── weather-icon.svg
+```
+
+## Segurança
+
+A versão antiga continha uma chave da OpenWeatherMap diretamente em `src/APi/instance.ts`. Essa implementação foi removida. Como a chave esteve publicada no histórico Git, ela deve ser revogada no painel da OpenWeatherMap caso ainda esteja ativa.
+
+## Créditos
+
+Projeto original: Anderson Jhonatan dos Santos  
+Reformulação e identidade: **K2 Tech**
